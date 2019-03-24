@@ -32,6 +32,7 @@ public class Train {
                     stationsList.get(i).equalsIgnoreCase(station)) {
                 timeList.remove(i);
                 stationsList.remove(i);
+
             }
         }
     }
