@@ -3,6 +3,7 @@ package trains;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Train {
@@ -74,7 +75,8 @@ public class Train {
         return Collections.unmodifiableList(timeList);
     }
     public String getTrainName() {
-        return trainName; }
+        return trainName;
+    }
 
     public String getLastStation() {
         return lastStation;
@@ -82,5 +84,22 @@ public class Train {
 
     public String getArrTime() {
         return arrTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Train train = (Train) o;
+        return Objects.equals(stationsList, train.stationsList) &&
+                Objects.equals(timeList, train.timeList) &&
+                trainName.equals(train.trainName) &&
+                lastStation.equals(train.lastStation) &&
+                arrTime.equals(train.arrTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stationsList, timeList, trainName, lastStation, arrTime);
     }
 }

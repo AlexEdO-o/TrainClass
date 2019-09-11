@@ -1,6 +1,7 @@
 package trains;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TrainManager {
 
@@ -37,18 +38,8 @@ public class TrainManager {
     }
 
     private int min(ArrayList<Integer> list) {
-        int min = Integer.MAX_VALUE;
-        int numOfTrain = -1;
-        for (int i = 0; i < list.size(); i++) {
-            Integer time = list.get(i);
-            if (time != null) {
-                if (min > time) {
-                    min = time;
-                    numOfTrain = i;
-                }
-            }
-        }
-        return numOfTrain;
+        int min = Collections.min(list);
+        return list.indexOf(min);
     }
 
     public Train searchForTrain(String destStation, String currentTime) {
@@ -64,7 +55,7 @@ public class TrainManager {
         if (res >= 0) {
             return trains.get(res);
         } else {
-            return new Train("No such train!", "00:00", null);
+            throw new IllegalArgumentException();
         }
     }
 }

@@ -1,5 +1,5 @@
-import Trains.Train;
-import Trains.TrainManager;
+import trains.Train;
+import trains.TrainManager;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,16 +26,12 @@ public class TrainTest {
         tm.addTrain(tr1);
         tm.addTrain(tr2);
         tm.addTrain(tr3);
-        Assert.assertEquals("No such train!",    tm.searchForTrain("A", "23:30").getTrainName());
-        Assert.assertEquals("Train1",            tm.searchForTrain("B", "18:30").getTrainName());
-        Assert.assertEquals("Train2",            tm.searchForTrain("C", "09:30").getTrainName());
-        Assert.assertEquals("Train1",            tm.searchForTrain("D", "16:30").getTrainName());
-        Assert.assertEquals("No such train!",    tm.searchForTrain("E", "22:30").getTrainName());
-        Assert.assertEquals("Train3",            tm.searchForTrain("F", "19:30").getTrainName());
-        Assert.assertEquals("No such train!",    tm.searchForTrain("B", "21:30").getTrainName());
-        Assert.assertEquals("No such train!",    tm.searchForTrain("D", "20:30").getTrainName());
-        Assert.assertEquals("Train2",            tm.searchForTrain("C", "13:30").getTrainName());
-        Assert.assertEquals("Train3",            tm.searchForTrain("E", "10:30").getTrainName());
+        Assert.assertEquals(tr1,            tm.searchForTrain("B", "18:30"));
+        Assert.assertEquals(tr2,            tm.searchForTrain("C", "09:30"));
+        Assert.assertEquals(tr1,            tm.searchForTrain("D", "16:30"));
+        Assert.assertEquals(tr3,            tm.searchForTrain("F", "19:30"));
+        Assert.assertEquals(tr2,            tm.searchForTrain("C", "13:30") );
+        Assert.assertEquals(tr3,            tm.searchForTrain("E", "10:30"));
 
     }
 }
